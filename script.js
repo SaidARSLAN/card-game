@@ -36,6 +36,7 @@ function flipCard(elm) {
     if (count <=0 && total < 20) {
             const result = `
                 <h1>YOU LOST</h1>
+                <h3>Your Point: ${total}</h3>
             `
             popUp.innerHTML=result;
             popUp.style.display="flex";
@@ -43,6 +44,7 @@ function flipCard(elm) {
     if (total > 20 && count >= 0) {
         const result = `
             <h1>You Win</h1>
+            <h3>Your Point: ${total}</h3>
         `
         popUp.innerHTML=result;
         popUp.style.display="flex";
