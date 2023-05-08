@@ -1,38 +1,31 @@
 const game = document.querySelector(".game");
 
+const nums = [];
 
-const numbers = [];
-
-let final = 0;
-
-function createNumber() {
-
-    for (let index = 0; index <= 11; index++) {
-        const number = Math.floor(Math.random() * 10);
-        numbers.push(number);
+var generateNumber = () => {
+    for (i=1;i<=16;i++) {
+        nums.push(Math.floor(Math.random()*10));
     }
-    
 }
 
-function displayGame() {
-    createNumber();
-    for (let i of numbers) {
-        const card = ` <div class="game-card" onclick="action(this)">
-                    <div class="front">?</div>
-                    <div class="back">${i}</div>
-                    </div>
-                    `
+function displayNumbers() {
+    generateNumber();
+    for (let i of nums) {
+        const card = `<div class="card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                        <div class="front">
+                            <img src="/images/qmark.jpg" width="50px">
+                        </div>
+                        <div class="back">
+                                <h2>${i}</h2>
+                            </div>
+                            </div>
+                    </div>`
         game.insertAdjacentHTML("beforeend",card);
     }
 }
-displayGame();
+displayNumbers();
 
-
-
-function action(elm) {
-    elm.classList.toggle("show_info");
-    final += Number(elm.children[1].textContent);
-    if (final >= 25) {
-        console.log("Başardın",final);
-    }
+function flipCard(elm) {
+    elm.children[0].classList.toggle("flip-card");
 }
