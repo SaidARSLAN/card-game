@@ -1,6 +1,8 @@
 const game = document.querySelector(".game");
-
+const popUp = document.querySelector(".pop-up");
 const nums = [];
+let count = 5;
+let total = 0;
 
 var generateNumber = () => {
     for (i=1;i<=16;i++) {
@@ -24,8 +26,25 @@ function displayNumbers() {
         game.insertAdjacentHTML("beforeend",card);
     }
 }
-displayNumbers();
 
+displayNumbers();
 function flipCard(elm) {
     elm.children[0].classList.toggle("flip-card");
+    count--;
+    let number = Number(elm.children[0].children[1].children[0].textContent);
+    total += number;
+    if (count <=0 && total < 20) {
+            const result = `
+                <h1>YOU LOST</h1>
+            `
+            popUp.innerHTML=result;
+            popUp.style.display="flex";
+    }
+    if (total > 20 && count >= 0) {
+        const result = `
+            <h1>You Win</h1>
+        `
+        popUp.innerHTML=result;
+        popUp.style.display="flex";
+    }
 }
