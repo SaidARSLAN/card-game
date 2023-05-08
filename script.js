@@ -1,5 +1,6 @@
 const game = document.querySelector(".game");
 const popUp = document.querySelector(".pop-up");
+
 const nums = [];
 let count = 5;
 let total = 0;
@@ -29,24 +30,31 @@ function displayNumbers() {
 
 displayNumbers();
 function flipCard(elm) {
+    if (elm.children[0].classList[1] != "flip-card") {
     elm.children[0].classList.toggle("flip-card");
     count--;
     let number = Number(elm.children[0].children[1].children[0].textContent);
     total += number;
-    if (count <=0 && total < 20) {
-            const result = `
-                <h1>YOU LOST</h1>
-                <h3>Your Point: ${total}</h3>
-            `
-            popUp.innerHTML=result;
-            popUp.style.display="flex";
     }
-    if (total > 20 && count >= 0) {
+    calculateResult();
+}
+
+function calculateResult() {
+    console.log(count,total);
+    if (count <=0 && total < 20) {
         const result = `
-            <h1>You Win</h1>
+            <h1>YOU LOST</h1>
             <h3>Your Point: ${total}</h3>
         `
         popUp.innerHTML=result;
         popUp.style.display="flex";
-    }
+        }
+    if (total > 20 && count >= 0) {
+    const result = `
+        <h1>You Win</h1>
+        <h3>Your Point: ${total}</h3>
+    `
+    popUp.innerHTML=result;
+    popUp.style.display="flex";
+}
 }
