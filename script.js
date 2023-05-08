@@ -1,5 +1,12 @@
 const game = document.querySelector(".game");
 const popUp = document.querySelector(".pop-up");
+const reset = document.querySelector("#reset");
+const startGame = document.querySelector(".start-game");
+const contain = document.querySelector(".contain")
+
+reset.addEventListener("click",resetGame);
+startGame.addEventListener("click",startEverything)
+
 
 const nums = [];
 let count = 5;
@@ -39,12 +46,15 @@ function flipCard(elm) {
     calculateResult();
 }
 
+
+
 function calculateResult() {
     console.log(count,total);
     if (count <=0 && total < 20) {
         const result = `
             <h1>YOU LOST</h1>
             <h3>Your Point: ${total}</h3>
+            <button onclick="resetGameButton()" type="button" id="again">Play Again</button>
         `
         popUp.innerHTML=result;
         popUp.style.display="flex";
@@ -53,8 +63,30 @@ function calculateResult() {
     const result = `
         <h1>You Win</h1>
         <h3>Your Point: ${total}</h3>
+        <button onclick="resetGameButton()" type="button" id="again">Play Again</button>
     `
     popUp.innerHTML=result;
     popUp.style.display="flex";
 }
+}
+
+function resetGame() {
+    count=5;
+    total=0;
+    nums.splice(0,nums.length);
+    game.innerHTML="";
+    displayNumbers();
+}
+ function resetGameButton() {
+    popUp.style.display="none";
+    count=5;
+    total=0;
+    nums.splice(0,nums.length);
+    game.innerHTML="";
+    displayNumbers();
+}
+
+function startEverything () {
+    contain.style.transform = "scale(1)"
+    startGame.style.display="none";
 }
