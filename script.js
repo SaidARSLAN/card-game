@@ -11,5 +11,6 @@ function createNumber() {
     }
     
 }
-createNumber();
-console.log(numbers);
+function displayGame() {
+    console.log("test");
+}
