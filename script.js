@@ -3,7 +3,7 @@ const popUp = document.querySelector(".pop-up");
 const reset = document.querySelector("#reset");
 const startGame = document.querySelector(".start-game");
 const contain = document.querySelector(".contain")
-
+const chooserArea = document.querySelector(".choose");
 reset.addEventListener("click",resetGame);
 startGame.addEventListener("click",startEverything)
 
@@ -111,5 +111,6 @@ async function startEverything () {
 function displayGame () {
     contain.style.transform = "scale(1)"
     startGame.style.display="none";
+    chooserArea.style.display="none";
     document.querySelector(".counterSection").style.display="none";
 }
