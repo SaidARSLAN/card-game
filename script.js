@@ -89,8 +89,27 @@ function resetGame() {
     contain.style.display="flex";
 }
 
+var countBack = 4;
 
-function startEverything () {
+function counter() {
+    countBack--;
+    if (countBack==0) {
+        displayGame();
+    }
+    if (countBack > 0) {
+        startGame.style.display="none";
+        const writeCount = `<h1 class="count">${countBack}</h1>`
+        document.querySelector(".counterSection").innerHTML=writeCount;
+    }
+    
+}
+
+async function startEverything () {
+    let startCount = setInterval(counter,1000);
+}
+
+function displayGame () {
     contain.style.transform = "scale(1)"
     startGame.style.display="none";
+    document.querySelector(".counterSection").style.display="none";
 }
