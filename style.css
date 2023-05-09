@@ -80,8 +80,9 @@ header {
     align-items: center;
     justify-content: center;
     font-size: 60px;
-    color: black;
+    color: white;
     backface-visibility: hidden;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .front {
     transform: rotateY(0deg);

@@ -12,6 +12,7 @@ const nums = [];
 let count = 5;
 let total = 0;
 
+
 var generateNumber = () => {
     for (i=1;i<=16;i++) {
         nums.push(Math.floor(Math.random()*10));
@@ -59,7 +60,7 @@ function calculateResult() {
         popUp.innerHTML=result;
         popUp.style.display="flex";
         }
-    if (total > 20 && count >= 0) {
+    if (total >= 20 && count >= 0) {
     const result = `
         <h1>You Win</h1>
         <h3>Your Point: ${total}</h3>
@@ -67,6 +68,7 @@ function calculateResult() {
     `
     popUp.innerHTML=result;
     popUp.style.display="flex";
+    contain.style.display="none";
 }
 }
 
@@ -84,7 +86,9 @@ function resetGame() {
     nums.splice(0,nums.length);
     game.innerHTML="";
     displayNumbers();
+    contain.style.display="flex";
 }
+
 
 function startEverything () {
     contain.style.transform = "scale(1)"
