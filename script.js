@@ -3,7 +3,7 @@ const popUp = document.querySelector(".pop-up");
 const reset = document.querySelector("#reset");
 const startGame = document.querySelector(".start-game");
 const contain = document.querySelector(".contain")
-
+const countBackfromTen = document.querySelector(".countBack");
 reset.addEventListener("click",resetGame);
 startGame.addEventListener("click",startEverything)
 
@@ -49,9 +49,8 @@ function flipCard(elm) {
 
 
 
-function calculateResult() {
-    console.log(count,total);
-    if (count <=0 && total < 20) {
+function calculateResult(countTen) {
+    if (count <=0 && total < 20 || countTen == 0 && total < 20) {
         const result = `
             <h1>YOU LOST</h1>
             <h3>Your Point: ${total}</h3>
@@ -59,6 +58,7 @@ function calculateResult() {
         `
         popUp.innerHTML=result;
         popUp.style.display="flex";
+        contain.style.transform = "scale(0)";
         }
     if (total >= 20 && count >= 0) {
     const result = `
@@ -90,7 +90,7 @@ function resetGame() {
 }
 
 var countBack = 4;
-
+var countTen = 14;
 function counter() {
     countBack--;
     if (countBack==0) {
@@ -106,10 +106,21 @@ function counter() {
 
 async function startEverything () {
     let startCount = setInterval(counter,1000);
+    let startCountTen = setInterval(counterTen,1000);
 }
 
 function displayGame () {
     contain.style.transform = "scale(1)"
+    countBackfromTen.style.transform= "scale(1)";
     startGame.style.display="none";
     document.querySelector(".counterSection").style.display="none";
+
 }
+ function counterTen() {
+    if (countTen>0) {
+        countTen--;
+        countBackfromTen.children[0].textContent=`${countTen}`;
+        calculateResult(countTen);
+    }
+    
+ }

@@ -155,3 +155,12 @@ header {
     font-size: 40px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+.countBack {
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 3px;
+    top: 10%;
+    left: 35%;
+    transform: scale(0);
+    transition: 1.2s;
+}
