@@ -7,7 +7,7 @@ const countBackfromTen = document.querySelector(".countBack");
 reset.addEventListener("click",resetGame);
 startGame.addEventListener("click",startEverything)
 
-console.log("LAST OPTİON HAVE ADDED FROM FHUMANITY")
+
 const nums = [];
 let count = 5;
 let total = 0;
@@ -73,6 +73,7 @@ function calculateResult(countTen) {
 }
 
 function resetGame() {
+    countTen=6;
     count=5;
     total=0;
     nums.splice(0,nums.length);
@@ -80,7 +81,7 @@ function resetGame() {
     displayNumbers();
 }
  function resetGameButton() {
-    countTen=11;
+    countTen=6;
     popUp.style.display="none";
     count=5;
     total=0;
@@ -91,7 +92,7 @@ function resetGame() {
 }
 
 var countBack = 4;
-var countTen = 14;
+var countTen = 9;
 function counter() {
     countBack--;
     if (countBack==0) {
@@ -106,6 +107,9 @@ function counter() {
 }
 
 async function startEverything () {
+    const words = ["Game is Starting","You should be hurry","Don't make mistake","Keep Focus"]
+    document.querySelector(".counterSection").innerHTML=`<h1>${words[Math.floor(Math.random()*words.length)]}</h1>`
+    startGame.style.display="none";
     let startCount = setInterval(counter,1000);
     let startCountTen = setInterval(counterTen,1000);
 }
@@ -115,7 +119,6 @@ function displayGame () {
     countBackfromTen.style.transform= "scale(1)";
     startGame.style.display="none";
     document.querySelector(".counterSection").style.display="none";
-
 }
 function counterTen() {
     if (countTen>0) {
