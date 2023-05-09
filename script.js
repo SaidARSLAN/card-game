@@ -58,7 +58,7 @@ function calculateResult(countTen) {
         `
         popUp.innerHTML=result;
         popUp.style.display="flex";
-        contain.style.transform = "none";
+        contain.style.display = "none";
         }
     if (total >= 20 && count >= 0) {
     const result = `
