@@ -7,7 +7,7 @@ const countBackfromTen = document.querySelector(".countBack");
 reset.addEventListener("click",resetGame);
 startGame.addEventListener("click",startEverything)
 
-
+console.log("LAST OPTİON HAVE ADDED FROM FHUMANITY")
 const nums = [];
 let count = 5;
 let total = 0;
@@ -58,7 +58,7 @@ function calculateResult(countTen) {
         `
         popUp.innerHTML=result;
         popUp.style.display="flex";
-        contain.style.transform = "scale(0)";
+        contain.style.transform = "none";
         }
     if (total >= 20 && count >= 0) {
     const result = `
@@ -80,6 +80,7 @@ function resetGame() {
     displayNumbers();
 }
  function resetGameButton() {
+    countTen=11;
     popUp.style.display="none";
     count=5;
     total=0;
@@ -116,11 +117,10 @@ function displayGame () {
     document.querySelector(".counterSection").style.display="none";
 
 }
- function counterTen() {
+function counterTen() {
     if (countTen>0) {
         countTen--;
         countBackfromTen.children[0].textContent=`${countTen}`;
         calculateResult(countTen);
     }
-    
  }
